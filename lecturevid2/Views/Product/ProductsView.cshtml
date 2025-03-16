@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Live Searching";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<lecturevid2.Models.Products>;
+
+<h2>Product List</h2>
+<a asp-action="CreateProduct" asp-controller="Product" class="btn btn-primary">Add Product</a>
+
+<input type="text" id="searchInput" class="form-control" placeholder="Search product..." />
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+
+    <tbody id="productTable">
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </tbody>
+
+</table>
+<script src="~/lib/jquery/dist/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            var keyword = $(this).val();
+            $.ajax({
+                url: '/Product/LiveSearch',
+                type: 'GET',
+                data: { keyword: keyword },
+                success: function (data) {
+                 
+                    $('#productTable').html('');
+                    if (data.length == 0) {
+                        $('#productTable').append(`
+                            <tr>
+                                <td colspan="3">No products Found.</td>
+                               
+                            </tr>
+                        `);
+                    }
+                    else {
+                        $.each(data, function (index, product) {
+                            $('#productTable').append(`
+                            <tr>
+                                <td>${product.id}</td>
+                                <td>${product.name}</td>
+                                <td>${product.price}</td>
+                            </tr>
+                        `);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
