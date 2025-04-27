@@ -138,3 +138,4 @@ C:\Users\Gloreanne\source\repos\lecturevid2\lecturevid2\obj\Debug\net5.0\Razor\V
 C:\Users\Gloreanne\source\repos\lecturevid2\lecturevid2\obj\Debug\net5.0\Razor\Views\Product\UploadXML.cshtml.g.cs
 C:\Users\Gloreanne\source\repos\lecturevid2\lecturevid2\obj\Debug\net5.0\Razor\Views\Product\ProductsView.cshtml.g.cs
 C:\Users\Gloreanne\source\repos\lecturevid2\lecturevid2\obj\Debug\net5.0\Razor\Views\Product\CreateProduct.cshtml.g.cs
+C:\Users\Gloreanne\source\repos\lecturevid2\lecturevid2\obj\Debug\net5.0\Razor\Views\Customer\Index.cshtml.g.cs

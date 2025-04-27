@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Customers>
+	<Customer>
+		<id>1</id>
+		<firstname>April</firstname>
+		<lastname>Mactal</lastname>
+		<email>gloreanne19@gmail.com</email>
+	</Customer>
+	<Customer>
+		<id>2</id>
+		<firstname>Second</firstname>
+		<lastname>Mactal</lastname>
+		<email>gloreanne19@gmail.com</email>
+	</Customer>
+</Customers>

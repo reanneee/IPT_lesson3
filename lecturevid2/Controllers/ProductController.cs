@@ -29,16 +29,7 @@ namespace lecturevid2.Controllers
             _xmlFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "Schemas", "Products.xml");
         }
 
-        public IActionResult ProductsView()
-        {
-            var products = ReadProductsFromXml();
-            return View(products);
-        }
-
-        public IActionResult CreateProduct()
-        {
-            return View();
-        }
+     
         [HttpGet]
         public IActionResult LiveSearch(string? keyword)
         {
@@ -63,7 +54,16 @@ namespace lecturevid2.Controllers
             }
             
         }
+   public IActionResult ProductsView()
+        {
+            var products = ReadProductsFromXml();
+            return View(products);
+        }
 
+        public IActionResult CreateProduct()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult CreateProduct(Products product)

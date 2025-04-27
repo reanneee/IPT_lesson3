@@ -10,41 +10,42 @@ namespace lecturevid2.DataAccess
     public class DatabaseHelper
     {
         private readonly string _connString;
+
         public DatabaseHelper(string connString)
         {
             _connString = connString;
         }
+
         public DataTable SelectQuery(string query)
         {
-            DataTable dataTable = new DataTable();
+            DataTable dt = new DataTable();
 
-            using (MySqlConnection connection = new MySqlConnection(_connString))
+            using(MySqlConnection connection=new MySqlConnection(_connString))
             {
                 connection.Open();
                 using(MySqlCommand command=new MySqlCommand(query, connection))
                 {
-                    using(MySqlDataAdapter adapter=new MySqlDataAdapter(command) )
+                    using(MySqlDataAdapter adapter=new MySqlDataAdapter(command))
                     {
-                        adapter.Fill(dataTable);
+                        adapter.Fill(dt);
                     }
                 }
             }
-            return dataTable;
+            return dt;
         }
-        //create ,update,delete
+
         public int ExecuteQuery(string query)
         {
-            DataTable dataTable = new DataTable();
-
-            using (MySqlConnection connection = new MySqlConnection(_connString))
+            DataTable dt = new DataTable();
+            using(MySqlConnection connection=new MySqlConnection(_connString))
             {
                 connection.Open();
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                using(MySqlCommand command=new MySqlCommand(query, connection))
                 {
-                    return command.ExecuteNonQuery();//return
+                  return command.ExecuteNonQuery();
                 }
             }
-         
+           
         }
     }
 }
